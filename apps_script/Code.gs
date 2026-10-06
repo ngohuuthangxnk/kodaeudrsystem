@@ -153,4 +153,24 @@ function uploadEvidence(taskId,file){const u=user_();return lock_(()=>{const t=r
  add_('06_DOCUMENT_REGISTER',{id:dId,case_id:t.case_id,task_id:taskId,kind:'EVIDENCE',name,file_id:f.getId(),version,status:'Received',uploaded_by:u.email,created_at:now_()});if(t.document_id)patch_('06_DOCUMENT_REGISTER',t.document_id,{status:'Superseded'});patch_('04_EVIDENCE_TRACKER',taskId,{document_id:dId,status:'Received',updated_at:now_()});audit_('UPLOADED',t.case_id,dId,t.status,'Received V'+version,u.email);return true;});}
 function getDocument(id){const u=user_(),d=rows_('06_DOCUMENT_REGISTER').find(x=>x.id===id);if(!d)throw Error('Document not found');if(!manager_(u)&&!rows_('04_EVIDENCE_TRACKER').some(t=>t.id===d.task_id&&t.owner===u.email))throw Error('Document access denied');const f=DriveApp.getFileById(d.file_id);if(f.getSize()>8*1024*1024)throw Error('File exceeds app download limit; use authorized Drive link');const b=f.getBlob();return {name:d.name,type:b.getContentType(),data:Utilities.base64Encode(b.getBytes())};}
 function registerOutput(caseId,fileId){const u=requireManager_();return lock_(()=>{const c=rows_('01_SO_MASTER').find(x=>x.id===caseId);if(!c)throw Error('Case not found');const f=DriveApp.getFileById(fileId),parents=f.getParents();let valid=false;while(parents.hasNext()){const p=parents.next();if(p.getName()==='99_FINAL'){const pp=p.getParents();while(pp.hasNext())if(pp.next().getId()===c.folder)valid=true;}}if(!valid)throw Error('Put final file in this case 99_FINAL folder first');const id=uid_();add_('06_DOCUMENT_REGISTER',{id,case_id:caseId,kind:'OUTPUT',name:f.getName(),file_id:f.getId(),version:rows_('06_DOCUMENT_REGISTER').filter(d=>d.case_id===caseId&&d.kind==='OUTPUT').length+1,status:'Draft',uploaded_by:u.email,created_at:now_()});audit_('OUTPUT_REGISTERED',caseId,id,'','Draft',u.email);return id;});}
+// Pilot-sized output upload: the user selects a file in the web UI, without a Drive ID.
+// The original file and its previous register versions remain in Drive for review.
+function uploadOutput(caseId,file){const u=requireManager_();return lock_(()=>{
+ const c=rows_('01_SO_MASTER').find(x=>x.id===caseId);if(!c)throw Error('Case not found');
+ if(c.status==='Completed')throw Error('Completed case cannot receive a new output');
+ if(!file||typeof file.data!=='string'||!file.data||typeof file.name!=='string')throw Error('Choose a PDF output');
+ if(file.type!=='application/pdf'||!/\.pdf$/i.test(file.name))throw Error('Output must be a PDF');
+ if(file.data.length>4200000||!/^[A-Za-z0-9+/]+={0,2}$/.test(file.data))throw Error('Invalid or oversized PDF');
+ const bytes=Utilities.base64Decode(file.data);
+ if(bytes.length>3*1024*1024||bytes.length<5||bytes[0]!==37||bytes[1]!==80||bytes[2]!==68||bytes[3]!==70||bytes[4]!==45)throw Error('PDF must be valid and under 3 MB');
+ const clean=String(file.name).replace(/[\\/<>\x00-\x1f]/g,'_').slice(0,180);
+ const orderFolder=DriveApp.getFolderById(c.folder),folders=orderFolder.getFoldersByName('99_FINAL');
+ const finalFolder=folders.hasNext()?folders.next():orderFolder.createFolder('99_FINAL');
+ const f=finalFolder.createFile(Utilities.newBlob(bytes,'application/pdf',clean));
+ const docs=rows_('06_DOCUMENT_REGISTER').filter(d=>d.case_id===caseId&&d.kind==='OUTPUT');
+ const id=uid_(),version=docs.reduce((n,d)=>Math.max(n,Number(d.version)||0),0)+1;
+ add_('06_DOCUMENT_REGISTER',{id,case_id:caseId,kind:'OUTPUT',name:clean,file_id:f.getId(),version,status:'Draft',uploaded_by:u.email,created_at:now_()});
+ audit_('OUTPUT_UPLOADED',caseId,id,'','Draft V'+version,u.email);
+ return {id,version};
+});}
 function completeCase(caseId){const u=requireManager_();return lock_(()=>{const tasks=rows_('04_EVIDENCE_TRACKER').filter(t=>t.case_id===caseId);if(config_('RULES_CONFIRMED')!=='YES')throw Error('Admin must confirm requirement rules in 09_CONFIG first');if(!tasks.length||tasks.some(t=>t.status!=='Accepted'))throw Error('All evidence tasks must be accepted');const outputs=rows_('06_DOCUMENT_REGISTER').filter(d=>d.case_id===caseId&&d.kind==='OUTPUT');if(!outputs.length)throw Error('Register final output first');const latest=outputs.sort((a,b)=>Number(b.version)-Number(a.version))[0];patch_('06_DOCUMENT_REGISTER',latest.id,{status:'Approved'});patch_('01_SO_MASTER',caseId,{status:'Completed',updated_at:now_()});audit_('CASE_COMPLETED',caseId,latest.id,'Collecting','Completed',u.email);return true;});}

@@ -2,7 +2,7 @@ import {createHmac, createHash, randomUUID, timingSafeEqual} from 'node:crypto';
 
 const reply = (statusCode, value) => ({statusCode, headers:{'content-type':'application/json; charset=utf-8','cache-control':'no-store'}, body:JSON.stringify(value)});
 const equal = (a, b) => timingSafeEqual(createHash('sha256').update(a).digest(), createHash('sha256').update(b).digest());
-const allowed = new Set(['bootstrap','createCase','addMaterial','updateTask','uploadEvidence','getDocument','registerOutput','completeCase','syncCalendar','getAiPrompt']);
+const allowed = new Set(['bootstrap','createCase','addMaterial','updateTask','uploadEvidence','uploadOutput','getDocument','registerOutput','completeCase','syncCalendar','getAiPrompt']);
 
 export async function handler(event) {
   if (event.httpMethod !== 'POST') return reply(405,{error:'POST required'});

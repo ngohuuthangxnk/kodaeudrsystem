@@ -1,6 +1,6 @@
 # KODA EUDR — giao diện Netlify, dữ liệu Google
 
-Đây là bản **pilot một admin**: trang web chạy trên Netlify; Netlify Function chuyển yêu cầu có chữ ký tới Apps Script; Apps Script đọc/ghi Google Sheet, Drive và Calendar. ChatGPT mở với prompt qua link; anh tự đính kèm file. Không cần Supabase hoặc OpenAI API.
+Đây là bản **pilot một admin**: trang web chạy trên Netlify; Netlify Function chuyển yêu cầu có chữ ký tới Apps Script; Apps Script đọc/ghi Google Sheet, Drive và Calendar. ChatGPT mở với prompt qua link; anh tự đính kèm file. Không cần Supabase hoặc OpenAI API. Đọc `docs/PHASE0_AUDIT_AND_ROADMAP_VI.md` trước khi mở rộng cho supplier.
 
 ## Làm một lần theo 4 bước
 
@@ -54,7 +54,7 @@ Chạy lệnh **hai lần** để có hai giá trị khác nhau. Không gửi gi
 1. Mở trang gốc `https://<site>.netlify.app/`: phải thấy ô **Personal pilot sign in**, không phải trang 404.
 2. Mở `https://<site>.netlify.app/.netlify/functions/call` bằng trình duyệt: phải thấy JSON `POST required` (HTTP 405); nếu 404, Function chưa được deploy.
 3. Nhập `PILOT_ADMIN_TOKEN` vào trang chủ. Nếu kết nối đúng, Dashboard hiện dữ liệu từ Sheet.
-4. Sau đó mới tạo case thử (ghi vào Sheet và tạo folder Drive), upload file dưới 3 MB, bấm **Sync to KODA EUDR Calendar**, và thử **AI Assistant → Open ChatGPT with prompt**.
+4. Sau đó mới tạo case thử (ghi vào Sheet và tạo folder Drive), upload file dưới 3 MB, bấm **Sync to KODA EUDR Calendar**, và thử **AI Assistant → Open ChatGPT with prompt**. Trong Order Workspace, **Upload final PDF** cho phép chọn file trực tiếp dưới 3 MB mà không cần Drive file ID.
 
 ## Nếu đang có một site Netlify từ lần kéo thả ZIP
 
@@ -64,5 +64,5 @@ Site đó báo 404 vì chưa có `public/index.html` ở publish directory và c
 
 - Bản này chỉ dùng cho một admin với mã truy cập cá nhân; chưa có Google SSO riêng cho nhiều người.
 - Trang Calendar trong UI đọc deadline từ Sheet; nút Sync mới tạo/cập nhật Google Calendar. Không có trigger định kỳ.
-- File upload/download qua Netlify giới hạn khoảng **3 MB**. ChatGPT chỉ được mở kèm prompt; file đính kèm và kiểm tra đầu ra là thao tác của anh. Nội dung prompt trong URL có thể được lưu trong lịch sử trình duyệt.
+- File upload/download qua Netlify giới hạn khoảng **3 MB**. Tài liệu thực tế trong SO mẫu có file 4.4 MB và 17.8 MB nên không thể đi qua luồng pilot này; cần luồng upload lớn trước khi sử dụng vận hành. ChatGPT chỉ được mở kèm prompt; file đính kèm và kiểm tra đầu ra là thao tác của anh. Nội dung prompt trong URL có thể được lưu trong lịch sử trình duyệt.
 - Đây là mã đã được kiểm thử cục bộ với dịch vụ Google mô phỏng. Chưa thể xác nhận deployment Google/Netlify thật từ môi trường này.
