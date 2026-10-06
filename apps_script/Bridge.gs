@@ -6,6 +6,7 @@ var BRIDGE_ACTIONS = {
   addMaterial: addMaterial,
   updateTask: updateTask,
   uploadEvidence: uploadEvidence,
+  uploadOutput: uploadOutput,
   getDocument: getDocument,
   registerOutput: registerOutput,
   completeCase: completeCase,
