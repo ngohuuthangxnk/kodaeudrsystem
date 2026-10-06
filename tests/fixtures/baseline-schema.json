@@ -1,0 +1,105 @@
+{
+  "01_SO_MASTER": [
+    "id",
+    "so",
+    "customer",
+    "po",
+    "due",
+    "owner",
+    "folder",
+    "status",
+    "source_system",
+    "source_key",
+    "created_at",
+    "updated_at"
+  ],
+  "02_SO_ITEM_MATERIAL": [
+    "id",
+    "case_id",
+    "sku",
+    "material",
+    "supplier",
+    "supplier_po",
+    "tier",
+    "folder",
+    "source_system",
+    "source_key"
+  ],
+  "03_EVIDENCE_REQUIREMENT": [
+    "id",
+    "material",
+    "evidence",
+    "department",
+    "tier",
+    "enabled"
+  ],
+  "04_EVIDENCE_TRACKER": [
+    "id",
+    "case_id",
+    "material_id",
+    "evidence",
+    "department",
+    "owner",
+    "due",
+    "status",
+    "document_id",
+    "note",
+    "updated_at",
+    "calendar_event_id"
+  ],
+  "05_OWNER_MASTER": [
+    "email",
+    "name",
+    "department",
+    "role",
+    "active"
+  ],
+  "06_DOCUMENT_REGISTER": [
+    "id",
+    "case_id",
+    "task_id",
+    "kind",
+    "name",
+    "file_id",
+    "version",
+    "status",
+    "uploaded_by",
+    "created_at"
+  ],
+  "07_AI_REVIEW_QUEUE": [
+    "id",
+    "case_id",
+    "document_id",
+    "finding",
+    "status",
+    "reviewer"
+  ],
+  "08_ACTIVITY_LOG": [
+    "id",
+    "timestamp",
+    "actor",
+    "action",
+    "case_id",
+    "entity_id",
+    "previous",
+    "next"
+  ],
+  "09_CONFIG": [
+    "key",
+    "value"
+  ],
+  "10_INTEGRATION_LOG": [
+    "batch_id",
+    "source",
+    "timestamp",
+    "status",
+    "records",
+    "error"
+  ],
+  "11_INTEGRATION_ERROR": [
+    "batch_id",
+    "source_key",
+    "error",
+    "retry_status"
+  ]
+}

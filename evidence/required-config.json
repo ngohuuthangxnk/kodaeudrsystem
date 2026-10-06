@@ -1,0 +1,62 @@
+[
+  {
+    "key": "Spreadsheet ID",
+    "reference_or_template": "1xura5W6coeGeJsc1zQMP6Emw_QMTv5XAf0bqpC5Uk3A",
+    "note": "Production observed; replace with staging copy ID"
+  },
+  {
+    "key": "Drive Root Folder ID",
+    "reference_or_template": "1BWXpf-L6yBPQtXbskoQKMfN890aZXCJg",
+    "note": "Real folder verified from 09_CONFIG; use dedicated staging root"
+  },
+  {
+    "key": "Google Calendar ID",
+    "reference_or_template": "44c53155b661c93b06c6ee49bd9cce5764a91fa80cc57c805de639d3483cfce2@group.calendar.google.com",
+    "note": "Not visible to current connector account; test deploying account separately"
+  },
+  {
+    "key": "Netlify production URL",
+    "reference_or_template": "https://koda-eudr-system.netlify.app/",
+    "note": "Read-only inspection, no deployment"
+  },
+  {
+    "key": "ALLOWED_ORIGINS",
+    "reference_or_template": "Exact staging URL in both Netlify and Apps Script",
+    "note": "No wildcard; production origin only after release"
+  },
+  {
+    "key": "APPS_SCRIPT_WEBAPP_URL",
+    "reference_or_template": "New staging /exec deployment URL",
+    "note": "Netlify environment; live project was not retrieved"
+  },
+  {
+    "key": "DB_ID / ROOT_ID / CALENDAR_ID",
+    "reference_or_template": "Staging Sheet / Drive / Calendar IDs",
+    "note": "Apps Script properties; do not call prepared-sheet reconnect helpers"
+  },
+  {
+    "key": "BRIDGE_SECRET",
+    "reference_or_template": "Fresh random >=32 characters",
+    "note": "Same server-side secret in Netlify + Apps Script; never in frontend"
+  },
+  {
+    "key": "TOKEN_HASHES_JSON",
+    "reference_or_template": "SHA-256 personal token registry",
+    "note": "Netlify only: sha256, email, active, expires_at; distinct tokens >=32 random characters"
+  },
+  {
+    "key": "ALLOW_PILOT_ADMIN",
+    "reference_or_template": "false",
+    "note": "Shared pilot credential disabled by default"
+  },
+  {
+    "key": "TIME_ZONE / FRONTEND_URL",
+    "reference_or_template": "Asia/Ho_Chi_Minh / exact staging URL",
+    "note": "Set Google calendar timezone and Sheet 09_CONFIG explicitly"
+  },
+  {
+    "key": "Legal settings",
+    "reference_or_template": "NOT_REVIEWED until human verification",
+    "note": "LEGAL_RULE_VERSION, ANNEX_I_VERSION, COUNTRY_RISK_VERSION, LAST_LEGAL_REVIEW_DATE, LEGAL_REVIEWED_BY"
+  }
+]

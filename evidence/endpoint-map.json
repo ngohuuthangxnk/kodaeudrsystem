@@ -1,0 +1,167 @@
+[
+  {
+    "action": "beginUpload",
+    "arguments": "taskId,metadata",
+    "file": "apps_script/TransferService.gs"
+  },
+  {
+    "action": "uploadChunk",
+    "arguments": "sessionId,index,data",
+    "file": "apps_script/TransferService.gs"
+  },
+  {
+    "action": "finishUpload",
+    "arguments": "sessionId",
+    "file": "apps_script/TransferService.gs"
+  },
+  {
+    "action": "getDocumentChunk",
+    "arguments": "id,index",
+    "file": "apps_script/TransferService.gs"
+  },
+  {
+    "action": "recordLogin",
+    "arguments": "",
+    "file": "apps_script/AuthService.gs"
+  },
+  {
+    "action": "bootstrap",
+    "arguments": "",
+    "file": "apps_script/WorkspaceService.gs"
+  },
+  {
+    "action": "createCase",
+    "arguments": "input",
+    "file": "apps_script/OrderService.gs"
+  },
+  {
+    "action": "completeCase",
+    "arguments": "caseId,input",
+    "file": "apps_script/WorkspaceService.gs"
+  },
+  {
+    "action": "createOrder",
+    "arguments": "input",
+    "file": "apps_script/OrderService.gs"
+  },
+  {
+    "action": "previewMaterials",
+    "arguments": "caseId,json",
+    "file": "apps_script/OrderService.gs"
+  },
+  {
+    "action": "confirmMaterials",
+    "arguments": "caseId,json,confirmation",
+    "file": "apps_script/OrderService.gs"
+  },
+  {
+    "action": "addChainNode",
+    "arguments": "caseId,input",
+    "file": "apps_script/OrderService.gs"
+  },
+  {
+    "action": "updateTask",
+    "arguments": "id,change",
+    "file": "apps_script/OrderService.gs"
+  },
+  {
+    "action": "uploadEvidence",
+    "arguments": "taskId,file,limit",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "submitDocument",
+    "arguments": "id",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "reviewDocument",
+    "arguments": "id,decision,comment",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "getDocument",
+    "arguments": "id",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "addComment",
+    "arguments": "id,input",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "uploadProcessed",
+    "arguments": "sourceId,kind,file,limit",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "verifyProcessed",
+    "arguments": "id,input",
+    "file": "apps_script/DocumentService.gs"
+  },
+  {
+    "action": "syncCalendar",
+    "arguments": "",
+    "file": "apps_script/CalendarService.gs"
+  },
+  {
+    "action": "getAiPrompt",
+    "arguments": "caseId,functionName,documentId",
+    "file": "apps_script/PromptService.gs"
+  },
+  {
+    "action": "importAiResult",
+    "arguments": "runId,result",
+    "file": "apps_script/PromptService.gs"
+  },
+  {
+    "action": "saveGeo",
+    "arguments": "caseId,input",
+    "file": "apps_script/GeoService.gs"
+  },
+  {
+    "action": "reviewGeo",
+    "arguments": "id,input",
+    "file": "apps_script/GeoService.gs"
+  },
+  {
+    "action": "exportPackage",
+    "arguments": "caseId,input",
+    "file": "apps_script/ExportService.gs"
+  },
+  {
+    "action": "updateMaterialInfo",
+    "arguments": "id,input",
+    "file": "apps_script/MetadataService.gs"
+  },
+  {
+    "action": "saveCertificate",
+    "arguments": "id,input",
+    "file": "apps_script/MetadataService.gs"
+  },
+  {
+    "action": "saveCountryRisk",
+    "arguments": "input",
+    "file": "apps_script/MetadataService.gs"
+  },
+  {
+    "action": "manageUser",
+    "arguments": "input",
+    "file": "apps_script/AuthService.gs"
+  },
+  {
+    "action": "manageSupplier",
+    "arguments": "input",
+    "file": "apps_script/AuthService.gs"
+  },
+  {
+    "action": "saveSettings",
+    "arguments": "input",
+    "file": "apps_script/AuthService.gs"
+  },
+  {
+    "action": "markNotification",
+    "arguments": "id",
+    "file": "apps_script/OrderService.gs"
+  }
+]
