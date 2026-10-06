@@ -1,0 +1,1 @@
+{"name":"koda-eudr-incremental-upgrade","private":true,"version":"2.0.0-staging","type":"module","scripts":{"test":"node --test tests/v2.test.mjs","check":"node --check public/app.js && node --check netlify/functions/call.mjs"},"engines":{"node":">=20"}}

@@ -1,0 +1,109 @@
+{
+  "checked_at": "2026-10-06",
+  "observed_sources": [
+    {
+      "name": "EUDR SYSTEM Sheet",
+      "url": "https://docs.google.com/spreadsheets/d/1xura5W6coeGeJsc1zQMP6Emw_QMTv5XAf0bqpC5Uk3A/edit",
+      "scope": "13 tabs inventoried; headers/populated data and remaining bounded rows read"
+    },
+    {
+      "name": "Latest source ZIP",
+      "url": "https://drive.google.com/file/d/1X_mExAQvlhflY_0NIkDXPrBaDFDeB4uL/view",
+      "scope": "25,499 bytes; supplied latest version, modified 2026-10-06T05:42:22.841Z; downloaded and preserved"
+    },
+    {
+      "name": "EUDR root folder",
+      "url": "https://drive.google.com/drive/folders/1BWXpf-L6yBPQtXbskoQKMfN890aZXCJg",
+      "scope": "Verified actual folder and direct child inventory"
+    },
+    {
+      "name": "Existing SO folder",
+      "url": "https://drive.google.com/drive/folders/10jTl9zpDq1htpwrhoMh4jlqMBvcBTsvD",
+      "scope": "SO25-2183(VN) - COMPLETED; outside current empty SO table"
+    },
+    {
+      "name": "SO PDF",
+      "url": "https://drive.google.com/file/d/11TEqqw9b4nCxfg9Psyyzm9ufE5df0GB-/view",
+      "scope": "320,761 bytes; 2 pages extracted; SO25-2183, LA REDOUTE, SKU6064-DXU-X000-AM09-1, 250 Each"
+    },
+    {
+      "name": "Walnut evidence folder",
+      "url": "https://drive.google.com/drive/folders/11guob6WJEOTYlJh7E-8LIqMzf0DMESDg",
+      "scope": "Metadata inventory only; contract/invoice/PL/BL PDF 17,837,342 bytes, COO 188,823 bytes, GEO 4,413,818 bytes"
+    },
+    {
+      "name": "Original evidence folder",
+      "url": "https://drive.google.com/drive/folders/1pNTsD1Ny_I8yJyCkalLm_PlCmmYUtFM4",
+      "scope": "One 4,334,404-byte original combined PDF; contents not independently reviewed"
+    },
+    {
+      "name": "Official KODA logo",
+      "url": "https://drive.google.com/file/d/1pVnCcTxzM3wC-XFMKCX3KxfFUSFmR7Ko/view",
+      "scope": "White transparent trimmed safe-padding PNG copied unchanged, 45,806 bytes"
+    },
+    {
+      "name": "Production website",
+      "url": "https://koda-eudr-system.netlify.app/",
+      "scope": "Read-only browser inspection: Personal pilot login; no credentials supplied"
+    },
+    {
+      "name": "EC EUDR overview",
+      "url": "https://environment.ec.europa.eu/topics/forests/deforestation/regulation-deforestation-free-products_en",
+      "scope": "Accessible overview checked 2026-10-06; current application dates stated there; no legal approval inferred"
+    },
+    {
+      "name": "Regulation 2023/1115",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1115/oj",
+      "scope": "Official source identified; full-text retrieval blocked in session"
+    },
+    {
+      "name": "Amendment 2025/2650",
+      "url": "https://eur-lex.europa.eu/eli/reg/2025/2650/oj",
+      "scope": "Official metadata identified; full-text review pending"
+    },
+    {
+      "name": "Amendment 2026/2102",
+      "url": "https://eur-lex.europa.eu/eli/reg/2026/2102/oj",
+      "scope": "Official metadata identified, dated 2026-09-17; full Annex I review pending"
+    },
+    {
+      "name": "Country benchmarking 2025/1093",
+      "url": "https://eur-lex.europa.eu/eli/reg_impl/2025/1093/oj",
+      "scope": "Official source consulted; no country classification automatically seeded"
+    },
+    {
+      "name": "EC FAQ",
+      "url": "https://environment.ec.europa.eu/publications/faq-eudr-implementation_en",
+      "scope": "Landing page publication 2026-08-21, April 2026 content version; full attachment review pending"
+    },
+    {
+      "name": "EC Information System",
+      "url": "https://green-forum.ec.europa.eu/nature-and-biodiversity/deforestation-regulation-implementation/information-system-deforestation-regulation_en",
+      "scope": "Official system information consulted; this implementation submits no official declaration"
+    },
+    {
+      "name": "Apps Script web apps",
+      "url": "https://developers.google.com/apps-script/guides/web",
+      "scope": "Official execute-as and deployment documentation"
+    },
+    {
+      "name": "Drive uploads / downloads",
+      "url": "https://developers.google.com/workspace/drive/api/guides/manage-downloads",
+      "scope": "Official bounded media-download documentation; real runtime test pending"
+    },
+    {
+      "name": "Apps Script UrlFetch",
+      "url": "https://developers.google.com/apps-script/reference/url-fetch/url-fetch-app",
+      "scope": "Official server HTTP scope and fetch documentation"
+    },
+    {
+      "name": "Netlify Functions",
+      "url": "https://docs.netlify.com/build/functions/overview/",
+      "scope": "Official functions documentation; existing architecture retained"
+    }
+  ],
+  "source_zip_sha256": "0c2ad5741aa61f5a7f806c39a5a2a8d2d808ae8f1ca2c320147c1db4bb934342",
+  "official_logo_sha256": "b3445c1276e3f69713e72e34bd0319cf1cf315baab38f08a8caf2d672d0e5d6d",
+  "production_mutations": [],
+  "deployment_status": "STAGING_SOURCE_ONLY"
+}

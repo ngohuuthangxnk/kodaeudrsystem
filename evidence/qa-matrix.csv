@@ -1,0 +1,50 @@
+ID,Workflow / test,Evidence / boundary,Status
+UNIT-01,"closure requires human confirmation, complete traceability, fresh legal review and export","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-02,invalid coordinate precision configuration cannot bypass validation,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-03,Apps Script files parse and additive schema reuses existing tables,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-04,disabled user and disabled supplier are denied immediately,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-05,supplier bootstrap and direct document access cannot cross supplier/order scope,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-06,supplier chain and plot metadata stay within assigned material even on the same order,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-07,"supplier cannot manage user, create SO, review, export or use prompt studio","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-08,personal assignment owner can see own order evidence without global scope,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-09,invalid MIME signature and invalid date do not create Drive folders,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-10,"order retry reuses folder, file and order; duplicate SO is held","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-11,idempotency key cannot be reused with changed args,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-12,"material preview validates exact order, duplicates, citation and category","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-13,material confirmation creates required evidence once and supports retry,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-14,document rejection history survives replacement and only one version stays active,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-15,internal comments stay internal for supplier document viewer,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-16,reviewer acceptance requires submission; supplier cannot bypass with updateTask,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-17,"calendar retry, reschedule, owner change and completion keep one event and history","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-18,calendar permission failure saves task and never uses primary calendar,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-19,"GEO: valid point/polygon, out of range, malformed, closure, duplicate and intersection","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-20,plot >4 ha requires polygon; production country/source chain are required,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-21,deep upstream chain is not capped at two tiers and broken chain is flagged,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-22,FSC approved without GEO/upstream cannot become operator-ready,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-23,redaction/subtitle prompts require human-approved active source; no API calls,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-24,processed copies cannot become source evidence or replace original task review,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-25,export rejects rejected/inactive docs and unverified processed output,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-26,selected export produces manifest once and export download obeys scope,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-27,CSV/Sheet injection is neutralized and audit has no public edit endpoint,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-28,"signed request verifies origin, HMAC, replay and active actor","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-29,"Netlify authenticates separate principals, rejects spoofing, expiry and origins","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-30,material metadata needs cited source; supplier cannot edit species or legal scope,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-31,"scientific-name, scope, legality and production-country gaps block operator-ready","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-32,country classification records require EU sources and are versioned by production country,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-33,legal freshness rejects malformed review dates and missing reviewer,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-34,certificate expiry records create one renewal task without counting it as required evidence,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-35,migration validates all headers before writing and never touches auxiliary tabs,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-36,optimistic version check stops stale evidence upload,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-37,"chunked upload assembles >3 MiB, verifies checksum and keeps one active document on retry","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-38,"chunk upload rejects missing, altered, wrong-size and cross-user chunks","Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-39,bounded chunk download rechecks permission and refuses whole-file or short responses,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UNIT-40,all HTTP actions resolve to backend handlers and frontend action calls are supported,"Node tests with mocked Google services, synthetic fixtures only",PASS
+UAT-01,Authentication / supplier isolation,"Two real suppliers, disabled users, forged direct endpoint calls, all roles, cross-order documents/chunks/exports",NOT_RUN_RELEASE_GATE
+UAT-02,SO / materials,"Normal/missing/invalid/duplicate SO, one/multi-material MDF/veneer extraction, preview edited before confirm, occupied Drive folders",NOT_RUN_RELEASE_GATE
+UAT-03,Documents / UI,Real PDF/image/JSON preview; rejected v1 → approved v2; comments visibility; approved source → redacted/subtitled derivative → verified export,NOT_RUN_RELEASE_GATE
+UAT-04,Large files / export,"Actual 17,837,342-byte PDF upload/retry/preview/download; original vs result SHA-256; timeout recovery; <=23 MiB ZIP and over-limit hold",NOT_RUN_RELEASE_GATE
+UAT-05,GEO / traceability,"Multiple plots/countries, >4 ha polygon, MDF/veneer reaching forest plots, broken source graph, contradictory SO/evidence; map labels & mobile rendering",NOT_RUN_RELEASE_GATE
+UAT-06,Calendar,"Deploying account access, one event after retries, owner/due change, DONE/UNSCHEDULED history, 7/3/1 reminders, timezone and legacy event mapping",NOT_RUN_RELEASE_GATE
+UAT-07,Migration / rollback,Fresh full snapshot with formulas/protection/permissions; exact headers; all row counts and auxiliary tabs unchanged; restore snapshot and matching old code,NOT_RUN_RELEASE_GATE
+UAT-08,Security / privacy,"Existing Drive ACLs, inherited/public access, no token/secret logging, exact origins, Netlify environment isolation, effective-owner Apps Script authorization",NOT_RUN_RELEASE_GATE
+UAT-09,Legal / business approval,"Full current EUR-Lex and guidance review, source scope/CN/country risk/plot rules, independent human operator decisions",NOT_RUN_RELEASE_GATE
